@@ -4,6 +4,9 @@ Simple Spring REST forum app. After authentication user can create post and comm
 ## API documentation
 `http://localhost:8080/swagger-ui.html`
 
+![](screenshot/swagger.JPG)
+
+
 ## Technologies:
 Project is created with:
 ```
