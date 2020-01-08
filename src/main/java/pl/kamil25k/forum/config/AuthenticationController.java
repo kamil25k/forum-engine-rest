@@ -1,5 +1,7 @@
 package pl.kamil25k.forum.config;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -12,22 +14,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import pl.kamil25k.forum.user.UserService;
 
+@Api(tags = "authentication")
 @RestController
-public class JwtAuthenticationController {
+public class AuthenticationController {
 
     private final AuthenticationManager authenticationManager;
     private final JwtTokenUtil jwtTokenUtil;
     private final UserService userService;
 
     @Autowired
-    public JwtAuthenticationController(AuthenticationManager authenticationManager,
-                                       JwtTokenUtil jwtTokenUtil, UserService userService) {
+    public AuthenticationController(AuthenticationManager authenticationManager,
+                                    JwtTokenUtil jwtTokenUtil, UserService userService) {
         this.authenticationManager = authenticationManager;
         this.jwtTokenUtil = jwtTokenUtil;
         this.userService = userService;
     }
-
-    @PostMapping("/authenticate")
+    @ApiOperation("Get the token by the given username and password")
+    @PostMapping("/api/authenticate")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest request) throws Exception {
         authenticate(request.getUsername(), request.getPassword());
 

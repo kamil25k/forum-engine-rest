@@ -27,7 +27,8 @@ public class SwaggerConfig {
                 .apiInfo(apiInfo())
                 .ignoredParameterTypes()
                 .tags(new Tag("comments", "All comments operations"),
-                new Tag("posts", "All posts operations"))
+                        new Tag("authentication", "Authentication"),
+                        new Tag("posts", "All posts operations"))
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("pl.kamil25k.forum"))
                 .paths(PathSelectors.regex("/api.*"))
