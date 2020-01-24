@@ -1,5 +1,5 @@
 # forum-engine-rest
-Simple Spring REST forum app. After authentication user can create post and comments.
+Simple Spring REST forum app.
 
 ## API documentation
 `http://localhost:8080/swagger-ui.html`
